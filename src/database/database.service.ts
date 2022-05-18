@@ -12,7 +12,7 @@ export const databaseProviders = [
       return {
         type: 'mysql' as 'mysql',
         host: "35.199.86.224",
-        port: 3306,
+        //port: 3306,
         username: "banana",//config.get(Configuration.DB_USER),
         database: "bananareader-metadata-db",//config.get(Configuration.DB_NAME),
         password: "secretbanana",//config.get(Configuration.DB_PASS),
