@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  bananareader_metadata_db:
+    image: mariadb:latest
+    restart: unless-stopped
+    container_name: bananareader-metadata-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=raiz
+      - MYSQL_PASSWORD=secretbanana
+      - MYSQL_USER=banana
+      - MYSQL_DATABASE=bananadb
+    ports:
+      - 3306:3306
+    volumes:
+      - maria_data:/var/lib/mysqla
+  bananareader_metadata_ms:
+    image: bananareader-metadata-ms
+    restart: always
+    container_name: bananareader-metadata-ms
+    ports:
+      - 5001:5000
+
+volumes:
+  maria_data:
+#    external: true
