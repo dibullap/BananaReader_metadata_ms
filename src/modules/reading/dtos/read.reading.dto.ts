@@ -1,5 +1,6 @@
 import { Exclude, Expose, Type } from "class-transformer";
 import { IsNumber, IsString } from "class-validator";
+import { ReadBookDTO } from "src/modules/book/dtos";
 import { ReadLanguageDTO } from "src/modules/language/dtos/read.language.dto";
 import { ReadNarratorDTO } from "src/modules/narrator/dtos/read.narrator.dto";
 
@@ -24,6 +25,10 @@ export class ReadReadingDTO{
   @Expose()
   @IsNumber()
   readonly chapters: number;
+
+  @Expose()
+  @Type(Type => ReadBookDTO)
+  readonly book: ReadBookDTO;
 
   @Expose()
   @Type(Type => ReadLanguageDTO)

@@ -9,10 +9,10 @@ export class Book{
     @PrimaryGeneratedColumn()
     id_book: number;
 
-    @Column({type: "varchar", length: 30, unique: true, nullable: false})
+    @Column({type: "varchar", length: 60, unique: true, nullable: false})
     title: string;
 
-    @Column({type: "text", nullable: false})
+    @Column({type: "mediumtext", nullable: false})
     sinopsis: string;
 
     @Column({type: "int", nullable: false})
@@ -24,7 +24,7 @@ export class Book{
     @ManyToMany(Type => Genre, (genre) => genre.books, {eager: true})
     genres: Genre[];
 
-    @OneToMany(Type => Reading, (reading) => reading.book, {eager: true})
+    @OneToMany(Type => Reading, (reading) => reading.book)
     @JoinColumn()
     readings: Reading[];
 

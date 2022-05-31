@@ -11,11 +11,11 @@ export const databaseProviders = [
     async useFactory(config: ConfigService) {
       return {
         type: 'mysql' as 'mysql',
-        host: "35.199.86.224",
-        //port: 3306,
-        username: "banana",//config.get(Configuration.DB_USER),
-        database: "bananareader-metadata-db",//config.get(Configuration.DB_NAME),
-        password: "secretbanana",//config.get(Configuration.DB_PASS),
+        host: config.get(Configuration.DB_HOST),
+        port: Number.parseInt(config.get(Configuration.DB_PORT)),
+        username: config.get(Configuration.DB_USER),
+        database: config.get(Configuration.DB_NAME),
+        password: config.get(Configuration.DB_PASS),
         connectTimeoutMS: undefined,
         autoLoadEntities: true,
         synchronize: !!config.get(Configuration.DB_SYNC),

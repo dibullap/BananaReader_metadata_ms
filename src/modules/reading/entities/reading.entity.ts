@@ -21,7 +21,7 @@ export class Reading{
     @Column({type: "int", default: 0, nullable: false})
     chapters: number;
 
-    @OneToOne(Type => Language, {eager: true})
+    @ManyToOne(Type => Language, {eager: true})
     @JoinColumn()
     language: Language;
 
@@ -29,7 +29,7 @@ export class Reading{
     @JoinColumn()
     narrators: Narrator[];
 
-    @ManyToOne(Type => Book, (book) => book.readings)
+    @ManyToOne(Type => Book, (book) => book.readings, {eager: true})
     @JoinColumn()
     book: Book;
 

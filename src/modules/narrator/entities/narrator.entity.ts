@@ -14,13 +14,13 @@ export class Narrator{
 
     @ManyToMany(Type => Reading, (reading) => reading.narrators)
     @JoinTable({
-        name: "reading-narrator",
+        name: "reading_narrator",
         joinColumn: {
-            name: "narrator-id",
+            name: "narrator_id",
             referencedColumnName: "id_narrator"
         }, 
         inverseJoinColumn: {
-            name: "reading-id",
+            name: "reading_id",
             referencedColumnName: "id_reading"
         }
     })
