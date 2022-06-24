@@ -18,7 +18,8 @@ export class LanguageController {
 
     @Post('/create')
     createLanguage(@Body() language: Partial<CreateLanguageDTO>): Promise<ReadLanguageDTO>{
-        return this._languageService.create(language);
+        console.log(language);
+	return this._languageService.create(language);
     }
 
     @Put('/update/:id')
